@@ -57,27 +57,13 @@ The application integrates **2 main cloud services** via REST API:
 
 ### 4.1 Main flow itinerary generation
 
-```
-User fills in the form
-        ↓
-POST /api/itinerary
-        ↓
-[1] OpenWeatherMap API → weather data per day
-[2] Groq AI (chunks of 2 days) → itinerary JSON
-    (each chunk: destination + style + budget + weather + used places)
-        ↓
-Response: { itinerary[], totalEstimatedCost, generalTips }
-        ↓
-Frontend renders itinerary + Leaflet map
-```
+<img width="1440" height="1280" alt="image" src="https://github.com/user-attachments/assets/dbf5330d-87da-4b6b-bda9-842e1ed70ea5" />
+
 
 ### 4.2 Save trip flow
 
-```
-User clicks "Save"  →  POST /api/trips/save
-        ↓
-Firebase Firestore → document saved  →  Confirmation → UI updated
-```
+<img width="1440" height="520" alt="image" src="https://github.com/user-attachments/assets/f69d273a-df19-4bf6-b2ed-e758a873e014" />
+
 
 ### 4.3 Request / Response examples
 
