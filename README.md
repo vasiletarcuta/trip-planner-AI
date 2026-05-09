@@ -135,16 +135,17 @@ Firebase Firestore → document saved  →  Confirmation → UI updated
 ## 5. Application Screenshots
 
 ### Login page
-![Login](docs/screenshots/login.png)
+<img width="1919" height="904" alt="landing page" src="https://github.com/user-attachments/assets/aceba39c-abe4-4630-ad53-38d53f8e8b21" />
 
 ### Planning form
-![Home](docs/screenshots/home.png)
+<img width="1919" height="905" alt="homepage" src="https://github.com/user-attachments/assets/b8d19063-8f50-4056-9234-369ee6beb35a" />
 
 ### Generated itinerary with map
-![Itinerary](docs/screenshots/itinerary.png)
+<img width="1919" height="915" alt="itinerary-result" src="https://github.com/user-attachments/assets/7b85ea5f-1618-4654-97cf-2310f697c7dd" />
 
 ### Saved trips
-![Saved](docs/screenshots/saved.png)
+<img width="1919" height="907" alt="saved" src="https://github.com/user-attachments/assets/a1a4c70c-9273-435f-9937-96c05f4a6f2c" />
+
 
 ---
 
