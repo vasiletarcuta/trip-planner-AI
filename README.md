@@ -10,7 +10,7 @@
 
 ## 1. Introduction
 
-TripAI is a web application for travel planning that uses artificial intelligence to generate personalized itineraries. The user specifies the destination, travel dates, budget and preferred style, and the application automatically generates a detailed day-by-day plan with activities, meals and practical tips — adapted to real weather conditions.
+TripAI is a web application for travel planning that uses artificial intelligence to generate personalized itineraries. The user specifies the destination, travel dates, budget and preferred style, and the application automatically generates a detailed day-by-day plan with activities, meals and practical tips adapted to real weather conditions.
 
 The application is built with Next.js 14 (App Router), Google OAuth authentication via NextAuth.js, Firebase Firestore for storage, and is deployed on Vercel.
 
@@ -34,28 +34,28 @@ TripAI solves this problem through a single interface. The user enters a few bas
 
 The application integrates **2 main cloud services** via REST API:
 
-### Groq API (AI — LLM)
-- **Service:** Groq Cloud — model `llama-3.3-70b-versatile`
+### Groq API (AI LLM)
+- **Service:** Groq Cloud model `llama-3.3-70b-versatile`
 - **Purpose:** Generating the personalized itinerary (activities, meals, tips)
 - **Endpoint:** `https://api.groq.com/openai/v1/chat/completions`
 - **Authentication:** API Key in header `Authorization: Bearer {GROQ_API_KEY}`
 
 ### OpenWeatherMap API
-- **Service:** OpenWeatherMap — Forecast 5 days / 3 hours
+- **Service:** OpenWeatherMap Forecast 5 days / 3 hours
 - **Purpose:** Weather forecast for the destination and travel period
 - **Endpoint:** `https://api.openweathermap.org/data/2.5/forecast`
 - **Authentication:** API Key as query param `appid={OPENWEATHER_API_KEY}`
 
 ### Supporting Services
-- **Google OAuth** (NextAuth.js) — user authentication
-- **Firebase Firestore** — persistence of saved trips
-- **Nominatim / OpenStreetMap** — address geocoding for the Leaflet map
+- **Google OAuth** (NextAuth.js) user authentication
+- **Firebase Firestore** persistence of saved trips
+- **Nominatim / OpenStreetMap** address geocoding for the Leaflet map
 
 ---
 
 ## 4. Data Flow
 
-### 4.1 Main flow — itinerary generation
+### 4.1 Main flow itinerary generation
 
 ```
 User fills in the form
@@ -81,7 +81,7 @@ Firebase Firestore → document saved  →  Confirmation → UI updated
 
 ### 4.3 Request / Response examples
 
-**POST /api/itinerary — Request:**
+**POST /api/itinerary Request:**
 ```json
 {
   "destination": "Paris",
@@ -93,7 +93,7 @@ Firebase Firestore → document saved  →  Confirmation → UI updated
 }
 ```
 
-**POST /api/itinerary — Response:**
+**POST /api/itinerary Response:**
 ```json
 {
   "itinerary": [{
@@ -123,11 +123,11 @@ Firebase Firestore → document saved  →  Confirmation → UI updated
 
 ### 4.5 Authentication and Authorization
 
-- **Google OAuth 2.0** via NextAuth.js — users authenticate with their Google account
-- **JWT Session** — session is maintained via an HTTP-only cookie signed with `NEXTAUTH_SECRET`
-- **Groq API** — authenticated via `Authorization: Bearer` header (server-side only)
-- **OpenWeatherMap** — authenticated via `appid` query param (server-side only)
-- **Firebase Admin SDK** — authenticated via Service Account (credentials in env vars)
+- **Google OAuth 2.0** via NextAuth.js users authenticate with their Google account
+- **JWT Session** session is maintained via an HTTP-only cookie signed with `NEXTAUTH_SECRET`
+- **Groq API** authenticated via `Authorization: Bearer` header (server-side only)
+- **OpenWeatherMap** authenticated via `appid` query param (server-side only)
+- **Firebase Admin SDK** authenticated via Service Account (credentials in env vars)
 - All API keys are stored in server-side environment variables, never exposed to the client
 
 ---
